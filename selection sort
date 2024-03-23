@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+void selectionSort(int arr[], int n) {
+    int i, j, minIndex, temp;
+    
+    for (i = 0; i < n - 1; i++) {
+    	
+        minIndex = i;
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+int main() {
+    int i, n;
+    
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    
+    int arr[n];
+   
+    printf("Enter %d elements: ", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    selectionSort(arr, n);
+    
+    printf("Sorted array: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    
+    return 0;
+}
+
+//output:-
+//Enter the number of elements: 4
+//Enter 4 elements: 56
+//34
+//29
+//99
+//Sorted array: 29 34 56 99
+
+//--------------------------------
+//Process exited after 16.29 seconds with return value 0
+//Press any key to continue . . .
